@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Наша свадьба</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Montserrat;
+background:#faf6f6;
+text-align:center;
+}
+
+header{
+height:100vh;
+background-image:url("photo.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+color:white;
+background-color:rgba(0,0,0,0.3);
+background-blend-mode:darken;
+}
+
+h1{
+font-family:Playfair Display;
+font-size:60px;
+}
+
+section{
+padding:60px 20px;
+max-width:800px;
+margin:auto;
+}
+
+.timer{
+font-size:28px;
+margin-top:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+margin:10px 0;
+}
+
+form{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+button{
+padding:12px 30px;
+background:#c79a9a;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#b98585;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1 contenteditable="true">Анна & Иван</h1>
+
+<h2 contenteditable="true">12 июня 2026</h2>
+
+<div class="timer" id="timer"></div>
+
+</header>
+
+<section>
+
+<h2 contenteditable="true">Мы приглашаем вас на нашу свадьбу</h2>
+
+<p contenteditable="true">
+Будем счастливы разделить с вами этот особенный день
+</p>
+
+</section>
+
+<section class="gallery">
+
+<h2>Наши фотографии</h2>
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+
+</section>
+
+<section>
+
+<h2 contenteditable="true">Место проведения</h2>
+
+<p contenteditable="true">
+Ресторан "Сад мечты", Москва
+</p>
+
+<iframe
+width="100%"
+height="300"
+style="border:0"
+loading="lazy"
+allowfullscreen
+src="https://maps.google.com/maps?q=Москва&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</section>
+
+<section>
+
+<h2>Подтвердите присутствие</h2>
+
+<form id="form">
+
+<input type="text" name="name" placeholder="Ваше имя" required>
+
+<br><br>
+
+<label>Сможете прийти?</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="answer" value="Да, приду" required>
+Да, приду
+</label>
+
+<br>
+
+<label>
+<input type="radio" name="answer" value="Да, приду с парой">
+Да, приду с парой
+</label>
+
+<br>
+
+<label>
+<input type="radio" name="answer" value="Не смогу прийти">
+Не смогу прийти
+</label>
+
+<br>
+
+<label>
+<input type="radio" name="answer" value="Сообщу позже">
+Сообщу позже
+</label>
+
+<br><br>
+
+<button type="submit">Отправить</button>
+
+</form>
+
+</section>
+
+<script>
+
+const weddingDate = new Date("June 12, 2026 15:00:00").getTime()
+
+setInterval(function(){
+
+let now = new Date().getTime()
+
+let distance = weddingDate - now
+
+let days = Math.floor(distance/(1000*60*60*24))
+let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60))
+
+document.getElementById("timer").innerHTML =
+days + " дней " + hours + " часов до свадьбы"
+
+},1000)
+
+</script>
+
+</body>
+</html>
